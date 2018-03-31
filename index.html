@@ -1,0 +1,30 @@
+<html>
+   <head>
+      <title>VueJs Instance</title>
+      <link rel="stylesheet" href="index.css" />
+   </head>
+   <body>
+      <div id = "databinding" style = "">
+         <h1>Commande EP</h1>
+         <span>Prénom</span>
+         <input type = "text" placeholder = "Enter First Name" v-model = "fname"/>
+         <span>Nom</span>
+         <input type = "text" placeholder = "Enter Last Name" v-model = "lname"/>
+         <span>Adresse email</span>
+         <input type = "text" placeholder = "Enter Address" v-model = "addr"/>
+         <button v-on:click = "showdata" v-bind:style = "styleobj">Add</button>
+         <br/>
+         <br/>
+         <customercomponent
+            v-for = "(item, index) in custdet"
+            v-bind:item = "item"
+            v-bind:index = "index"
+            v-bind:itr = "item"
+            v-bind:key = "item.fname"
+            v-on:removeelement = "custdet.splice(index, 1)">
+         </customercomponent>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="app.js"></script>
+   </body>
+</html>
